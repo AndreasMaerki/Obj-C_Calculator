@@ -18,6 +18,7 @@
 		382F7EB316ED3D29003CB679 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 382F7EB216ED3D29003CB679 /* Default-568h@2x.png */; };
 		382F7EB616ED3D29003CB679 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382F7EB416ED3D29003CB679 /* MainStoryboard.storyboard */; };
 		382F7EB916ED3D29003CB679 /* calculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382F7EB816ED3D29003CB679 /* calculatorViewController.m */; };
+		382F7EC116ED53A5003CB679 /* calculatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 382F7EC016ED53A5003CB679 /* calculatorModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		382F7EB516ED3D29003CB679 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		382F7EB716ED3D29003CB679 /* calculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = calculatorViewController.h; sourceTree = "<group>"; };
 		382F7EB816ED3D29003CB679 /* calculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = calculatorViewController.m; sourceTree = "<group>"; };
+		382F7EBF16ED53A5003CB679 /* calculatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = calculatorModel.h; sourceTree = "<group>"; };
+		382F7EC016ED53A5003CB679 /* calculatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = calculatorModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				382F7EAB16ED3D28003CB679 /* calculatorAppDelegate.h */,
 				382F7EAC16ED3D28003CB679 /* calculatorAppDelegate.m */,
 				382F7EB416ED3D29003CB679 /* MainStoryboard.storyboard */,
+				382F7EBF16ED53A5003CB679 /* calculatorModel.h */,
+				382F7EC016ED53A5003CB679 /* calculatorModel.m */,
 				382F7EB716ED3D29003CB679 /* calculatorViewController.h */,
 				382F7EB816ED3D29003CB679 /* calculatorViewController.m */,
 				382F7EA316ED3D28003CB679 /* Supporting Files */,
@@ -177,6 +182,7 @@
 				382F7EA916ED3D28003CB679 /* main.m in Sources */,
 				382F7EAD16ED3D28003CB679 /* calculatorAppDelegate.m in Sources */,
 				382F7EB916ED3D29003CB679 /* calculatorViewController.m in Sources */,
+				382F7EC116ED53A5003CB679 /* calculatorModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

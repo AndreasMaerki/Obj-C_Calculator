@@ -7,23 +7,67 @@
 //
 
 #import "calculatorViewController.h"
+#import "calculatorModel.h"
 
 @interface calculatorViewController ()
-
+@property (nonatomic) BOOL userIsInTheMiddleOfTypingANumber;
+@property (nonatomic, strong) calculatorModel *calcModel;
 @end
 
 @implementation calculatorViewController
+@synthesize display = _display;
+@synthesize userIsInTheMiddleOfTypingANumber = _userIsInTheMiddleOfTypingANumber;
+@synthesize calcModel = _calcModel;
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+- (calculatorModel *) calcModel{
+    if (!_calcModel) _calcModel = [[calculatorModel alloc]init];
+    return _calcModel;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+// IBaction = void, only for xCode
+// id can point to any kind of object. so i could pass this method any kind
+// of object. if possible it should be as specific as possible.(button here)
+// the passed object will be stored in the local var sender!!
+- (IBAction)digitPressed:(UIButton *)sender {
+    // pass the receeved objet to digit
+    NSString *digit = sender.currentTitle;//current title is the lable
+    if (self.userIsInTheMiddleOfTypingANumber) {
+        self.display.text = [self.display.text stringByAppendingString:digit];
+    }else{
+        self.display.text = digit;
+        self.userIsInTheMiddleOfTypingANumber = YES;
+    }
 }
+- (IBAction)operationPressed:(UIButton *)sender {
+    if (self.userIsInTheMiddleOfTypingANumber) [self enterPressed];//convienience
+    double result = [self.calcModel performOperation:sender.currentTitle];
+    NSString *resultString = [NSString stringWithFormat:@"%g", result];
+    self.display.text = resultString;
+}
+
+- (IBAction)enterPressed {
+    [self.calcModel pushOperand:[self.display.text doubleValue]];
+    self.userIsInTheMiddleOfTypingANumber = NO;
+
+}
+- (IBAction)allClear {
+    [self.calcModel clearAll];
+    self.display.text = @"0";
+}
+
+- (IBAction)unaryOperationPressed:(UIButton *)sender {
+    if (self.userIsInTheMiddleOfTypingANumber) [self enterPressed];//convienience
+    double result = [self.calcModel unaryOperation:sender.currentTitle];
+    NSString *resultString = [NSString stringWithFormat:@"%g", result];
+    self.display.text = resultString;
+}
+- (IBAction)iFeelLuckyButtonPressed {
+    [self allClear];
+    NSString *resultString =[self.calcModel returnNiceWords];
+    self.display.text = resultString;
+}
+
 
 @end
